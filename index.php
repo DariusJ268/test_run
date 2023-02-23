@@ -254,28 +254,44 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
 
     $valandos1 = $valandos;
     $minutes1 = $minutes;
-    $sekundes1 = $sekundes;
+    $sekundes1 = $sekundes + $paplaikas;
 
-    if ($paplaikas < 300 && $paplaikas > 240) {
-        # code...
+    if ($sekundes1 >= 300) {
+        ($minutes1 = $minutes + 5) && ($sekundes1 = $sekundes1 - 300);
+    } elseif (($sekundes1 < 300) && ($sekundes1 >= 240)) {
+        ($minutes1 = $minutes + 4) && ($sekundes1 = $sekundes1 - 240);
+    } elseif (($sekundes1 < 240) && ($sekundes1 >= 180)) {
+        ($minutes1 = $minutes + 3) && ($sekundes1 = $sekundes1 - 180);
+    } elseif (($sekundes1 < 180) && ($sekundes1 >= 120)) {
+        ($minutes1 = $minutes + 2) && ($sekundes1 = $sekundes1 - 120);
+    } elseif (($sekundes1 < 120) && ($sekundes1 >= 60)) {
+        ($minutes1 = $minutes + 1) && ($sekundes1 = $sekundes1 - 60);
     }
 
-    if (($valandos2 < 10) && ($minutes2 < 10) && ($sekundes2 < 10)) {
-        echo "0". $valandos2 . ":0" . $minutes2 . ":0" . $sekundes2;
-    } elseif (($valandos2 < 10) && ($minutes2 < 10)) {
-        echo "0". $valandos2 . ":0" . $minutes2 . ":" . $sekundes2;
-    } elseif (($valandos2 < 10) && ($sekundes2 < 10)) {
-        echo "0". $valandos2 . ":" . $minutes2 . ":0" . $sekundes2;
-    } elseif (($minutes2 < 10) && ($sekundes2 < 10)) {
-        echo $valandos2 . ":0" . $minutes2 . ":0" . $sekundes2;
-    } elseif ($valandos2 < 10) {
-        echo "0". $valandos2 . ":" . $minutes2 . ":" . $sekundes2;
-    } elseif ($minutes < 10) {
-        echo $valandos2 . ":0" . $minutes2 . ":" . $sekundes2;
-    } elseif ($sekundes2 < 10) {
-        echo $valandos2 . ":" . $minutes2 . ":0" . $sekundes2;
+    if ($minutes1 >= 60) {
+        ($valandos1 = $valandos + 1) && ($minutes1 = $minutes1 - 60);
+    }
+
+    if ($valandos1 >= 24) {
+        ($valandos1 = $valandos1 - 24);
+    }
+
+    if (($valandos1 < 10) && ($minutes1 < 10) && ($sekundes1 < 10)) {
+        echo "0". $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
+    } elseif (($valandos1 < 10) && ($minutes1 < 10)) {
+        echo "0". $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
+    } elseif (($valandos1 < 10) && ($sekundes1 < 10)) {
+        echo "0". $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
+    } elseif (($minutes1 < 10) && ($sekundes1 < 10)) {
+        echo $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
+    } elseif ($valandos1 < 10) {
+        echo "0". $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
+    } elseif ($minutes1 < 10) {
+        echo $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
+    } elseif ($sekundes1 < 10) {
+        echo $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
     } else {
-        echo $valandos2 . ":" . $minutes2 . ":" . $sekundes2;
+        echo $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
     }
 
     ?>
