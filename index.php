@@ -23,8 +23,15 @@
     echo $num21;
     echo "<br>";
     echo $num22;
+    echo "<br>";
 
-    
+    if ($num21 != 0 && $num22 != 0 && $num21 > $num22) {
+        echo (round(($num21/$num22),2) . "<br>");
+    } elseif ($num21 != 0 && $num22 != 0 && $num21 < $num22) {
+        echo (round(($num22/$num21),2) . "<br>");
+    } else {
+        echo "Dalyba negalima";
+    }
 
     echo "<hr>";
     
@@ -85,7 +92,7 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
     $a3 = rand(0,2);
     $a4 = rand(0,2);
 
-
+    
 
     ?>
 </body>
