@@ -92,7 +92,191 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
     $a3 = rand(0,2);
     $a4 = rand(0,2);
 
-    
+    echo $a1 . ", ";
+    echo $a2 . ", ";
+    echo $a3 . ", ";
+    echo $a4 . ". <br>";
+
+    $count0 = 0;
+    $count1 = 0;
+    $count2 = 0;
+
+    if ($a1 == 0) {
+        $count0++;
+    }
+    if ($a2 == 0) {
+        $count0++;
+    }
+    if ($a3 == 0) {
+        $count0++;
+    }
+    if ($a4 == 0) {
+        $count0++;
+    }
+    if ($a1 == 1) {
+        $count1++;
+    }
+    if ($a2 == 1) {
+        $count1++;
+    }
+    if ($a3 == 1) {
+        $count1++;
+    }
+    if ($a4 == 1) {
+        $count1++;
+    }
+    if ($a1 == 2) {
+        $count2++;
+    }
+    if ($a2 == 2) {
+        $count2++;
+    }
+    if ($a3 == 2) {
+        $count2++;
+    }
+    if ($a4 == 2) {
+        $count2++;
+    }
+
+    echo "0 kiekis = " . $count0++ . "<br>";
+    echo "1 kiekis = " . $count1++ . "<br>";
+    echo "2 kiekis = " . $count2++ . "<br>";
+
+    echo "<hr>";
+
+    $num6 = rand(1,6);
+
+    echo "<h" . $num6 . ">" . $num6 . "</h" . $num6 . ">";
+
+    echo "<hr>";
+
+    $n71 = rand(-10, 10);
+    $n72 = rand(-10, 10);
+    $n73 = rand(-10, 10);
+
+    if ($n71 < 0){
+        echo "<font color = 'green'>" . $n71 . "<br>"; 
+    } elseif ($n71 == 0) {
+        echo "<font color = 'red'>" . $n71 . "<br>";
+    } elseif ($n71 > 0) {
+        echo "<font color = 'blue'>" . $n71 . "<br>";
+    }
+    if ($n72 < 0){
+        echo "<font color = 'green'>" . $n72 . "<br>"; 
+    } elseif ($n72 == 0) {
+        echo "<font color = 'red'>" . $n72 . "<br>";
+    } elseif ($n72 > 0) {
+        echo "<font color = 'blue'>" . $n72 . "<br>";
+    }
+    if ($n73 < 0){
+        echo "<font color = 'green'>" . $n73 . "<br>"; 
+    } elseif ($n73 == 0) {
+        echo "<font color = 'red'>" . $n73 . "<br>";
+    } elseif ($n73 > 0) {
+        echo "<font color = 'blue'>" . $n73 . "<br>";
+    }
+
+    echo "<hr>";
+    echo "<font color = 'black'>";
+
+    $n8 = rand(5, 3000);
+    echo $n8 . "<br>";
+
+    if ($n8 < 1001) {
+        echo "Moketina suma = " . $n8 . " eur";
+    } elseif (1000 < $n8 && $n8 < 2001) {
+        echo "Moketina suma = " . round(($n8 * 0.97), 2) . " eur";
+    } elseif (2000 < $n8 && $n8 < 3001) {
+        echo "Moketina suma = " . round(($n8 * 0.96), 2) . " eur";
+    }
+
+    echo "<hr>";
+
+    $n91 = rand(0, 100);
+    $n92 = rand(0, 100);
+    $n93 = rand(0, 100);
+
+    echo $n91 . "<br>";
+    echo $n92 . "<br>";
+    echo $n93 . "<br>";
+
+    $vidurkis = "Triju skaiciu vidurkis (suapvalintas) = " . round(($n91 + $n92 + $n93)/3) . "<br>";
+    echo $vidurkis;
+
+    if (($n91 = 0) && ($n92 = 0) && ($n93 = 0)) {
+        echo "Lygtis negalima";
+    } elseif (($n91 < 10 || $n91 > 90) && ($n92 < 10 || $n92 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n93 . "<br>";
+    } elseif (($n93 < 10 || $n93 > 90) && ($n92 < 10 || $n92 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n91 . "<br>";
+    } elseif (($n93 < 10 || $n93 > 90) && ($n91 < 10 || $n91 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n92 . "<br>";
+    } elseif (($n91 < 10 || $n91 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n93)/2) . "<br>";
+    } elseif (($n92 < 10 || $n92 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n91 + $n93)/2) . "<br>";
+    } elseif (($n93 < 10 || $n93 > 90)) {
+        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n91)/2) . "<br>";
+    } elseif ($vidurkis = round(($n91 + $n92 + $n93)/3)) {
+        echo "Netinkamu reiksmiu nera; suapvalintas vidurkis lygus " . round(($n91 + $n92 + $n93)/3) . "<br>";
+    }
+
+    echo "<hr>";
+
+    $valandos = rand(0,23);
+    $minutes = rand(0,59);
+    $sekundes = rand(0,59);
+
+    // echo $valandos . ":" . $minutes . ":" . $sekundes;
+
+    if (($valandos < 10) && ($minutes < 10) && ($sekundes < 10)) {
+        echo "0". $valandos . ":0" . $minutes . ":0" . $sekundes;
+    } elseif (($valandos < 10) && ($minutes < 10)) {
+        echo "0". $valandos . ":0" . $minutes . ":" . $sekundes;
+    } elseif (($valandos < 10) && ($sekundes < 10)) {
+        echo "0". $valandos . ":" . $minutes . ":0" . $sekundes;
+    } elseif (($minutes < 10) && ($sekundes < 10)) {
+        echo $valandos . ":0" . $minutes . ":0" . $sekundes;
+    } elseif ($valandos < 10) {
+        echo "0". $valandos . ":" . $minutes . ":" . $sekundes;
+    } elseif ($minutes < 10) {
+        echo $valandos . ":0" . $minutes . ":" . $sekundes;
+    } elseif ($sekundes < 10) {
+        echo $valandos . ":" . $minutes . ":0" . $sekundes;
+    } else {
+        echo $valandos . ":" . $minutes . ":" . $sekundes;
+    }
+
+    echo "<br>";
+
+    $paplaikas = rand(0,300);
+    echo $paplaikas . "<br>";
+
+    $valandos1 = $valandos;
+    $minutes1 = $minutes;
+    $sekundes1 = $sekundes;
+
+    if ($paplaikas < 300 && $paplaikas > 240) {
+        # code...
+    }
+
+    if (($valandos2 < 10) && ($minutes2 < 10) && ($sekundes2 < 10)) {
+        echo "0". $valandos2 . ":0" . $minutes2 . ":0" . $sekundes2;
+    } elseif (($valandos2 < 10) && ($minutes2 < 10)) {
+        echo "0". $valandos2 . ":0" . $minutes2 . ":" . $sekundes2;
+    } elseif (($valandos2 < 10) && ($sekundes2 < 10)) {
+        echo "0". $valandos2 . ":" . $minutes2 . ":0" . $sekundes2;
+    } elseif (($minutes2 < 10) && ($sekundes2 < 10)) {
+        echo $valandos2 . ":0" . $minutes2 . ":0" . $sekundes2;
+    } elseif ($valandos2 < 10) {
+        echo "0". $valandos2 . ":" . $minutes2 . ":" . $sekundes2;
+    } elseif ($minutes < 10) {
+        echo $valandos2 . ":0" . $minutes2 . ":" . $sekundes2;
+    } elseif ($sekundes2 < 10) {
+        echo $valandos2 . ":" . $minutes2 . ":0" . $sekundes2;
+    } else {
+        echo $valandos2 . ":" . $minutes2 . ":" . $sekundes2;
+    }
 
     ?>
 </body>
