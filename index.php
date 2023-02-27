@@ -203,24 +203,56 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
     $vidurkis = "Triju skaiciu vidurkis (suapvalintas) = " . round(($n91 + $n92 + $n93)/3) . "<br>";
     echo $vidurkis;
 
-    if (($n91 = 0) && ($n92 = 0) && ($n93 = 0)) {
-        echo "Lygtis negalima";
-    } elseif (($n91 < 10 || $n91 > 90) && ($n92 < 10 || $n92 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n93 . "<br>";
-    } elseif (($n93 < 10 || $n93 > 90) && ($n92 < 10 || $n92 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n91 . "<br>";
-    } elseif (($n93 < 10 || $n93 > 90) && ($n91 < 10 || $n91 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n92 . "<br>";
-    } elseif (($n91 < 10 || $n91 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n93)/2) . "<br>";
-    } elseif (($n92 < 10 || $n92 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n91 + $n93)/2) . "<br>";
-    } elseif (($n93 < 10 || $n93 > 90)) {
-        echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n91)/2) . "<br>";
-    } elseif ($vidurkis = round(($n91 + $n92 + $n93)/3)) {
-        echo "Netinkamu reiksmiu nera; suapvalintas vidurkis lygus " . round(($n91 + $n92 + $n93)/3) . "<br>";
+    // if (($n91 = 0) && ($n92 = 0) && ($n93 = 0)) {
+    //     echo "Lygtis negalima";
+    // } elseif (($n91 < 10 || $n91 > 90) && ($n92 < 10 || $n92 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n93 . "<br>";
+    // } elseif (($n93 < 10 || $n93 > 90) && ($n92 < 10 || $n92 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n91 . "<br>";
+    // } elseif (($n93 < 10 || $n93 > 90) && ($n91 < 10 || $n91 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . $n92 . "<br>";
+    // } elseif (($n91 < 10 || $n91 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n93)/2) . "<br>";
+    // } elseif (($n92 < 10 || $n92 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n91 + $n93)/2) . "<br>";
+    // } elseif (($n93 < 10 || $n93 > 90)) {
+    //     echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round(($n92 + $n91)/2) . "<br>";
+    // } elseif (($n91 > 10 && $n91 < 90) && ($n92 > 10 && $n92 < 90) && ($n93 > 10 && $n93 < 90)) {
+    //     echo "Netinkamu reiksmiu nera; suapvalintas vidurkis lygus " . round(($n91 + $n92 + $n93)/3) . "<br>";
+    // }
+
+    $sum = 0;
+    $amount = 0;
+
+    if (($n91 >= 10 && $n91 <= 90)) {
+        $sum += $n91;
+        $amount++;
+    } else {
+        $sum += 0;
+        $amount += 0;
     }
 
+    if (($n92 >= 10 && $n92 <= 90)) {
+        $sum += $n92;
+        $amount++;
+    } else {
+        $sum += 0;
+        $amount += 0;
+    }
+
+    if (($n93 >= 10 && $n93 <= 90)) {
+        $sum += $n93;
+        $amount++;
+    } else {
+        $sum += 0;
+        $amount += 0;
+    }
+
+    if ($amount > 2) {
+        echo "Netinkamu reiksmiu nera; vidurkis = " . round($sum / $amount);
+    } else {
+    echo "Triju skaiciu vidurkis (suapvalintas), atemus netinkamas reiksmes = " . round($sum / $amount);
+    }
     echo "<hr>";
 
     $valandos = rand(0,23);
@@ -293,6 +325,67 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
     } else {
         echo $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
     }
+
+
+    echo "<br>";
+    $sekundes += $paplaikas;
+    $minutes += floor(($sekundes) / 60);
+    $sekundes %= 60;
+    $valandos += floor($minutes / 60);
+    $minutes %=60;
+    echo $valandos . " " . $minutes . " " . $sekundes;
+    echo "<hr>";
+
+    $name = "Ryan";
+    $surname = "Reynolds";
+
+    if (strlen($name) < strlen($surname)) {
+        echo $name;
+    } elseif (strlen($name) > strlen($surname)) {
+        echo $surname;
+    }
+
+    echo "<hr>";
+
+    echo strtoupper($name) . " " . strtolower($surname);
+
+    echo "<hr>";
+
+    $initials = substr($name, 0, 1) . " " . substr($surname, 0, 1);
+
+    echo $initials;
+
+    echo "<hr>";
+
+    $paskraid = substr($name, -3) . " " . substr($surname, -3);
+
+    echo $paskraid;
+
+    echo "<hr>";
+
+    $title = "An American in Paris";
+
+    echo str_ireplace("a", "*", $title);
+
+    echo "<hr>";
+
+    str_ireplace("a", "", $title, $count);
+    echo $count;
+
+    echo "<hr>";
+
+    echo str_ireplace(str_split("aeiouy"), "", $title) . "<br>";
+
+    $title1 = "Breakfast at Tiffany's";
+    $title2 = "2001: A Space Odyssey";
+    $title3 = "It's a Wonderful Life";
+    
+    echo str_ireplace(str_split("aeiouy"), "", $title1) . "<br>";
+    echo str_ireplace(str_split("aeiouy"), "", $title2) . "<br>";
+    echo str_ireplace(str_split("aeiouy"), "", $title3) . "<br>";
+
+    echo "<hr>";
+
 
     ?>
 </body>
