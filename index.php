@@ -288,52 +288,72 @@ if ($a + $b > $c && $a + $c > $b && $b + $c > $a) {
     $minutes1 = $minutes;
     $sekundes1 = $sekundes + $paplaikas;
 
-    if ($sekundes1 >= 300) {
-        ($minutes1 = $minutes + 5) && ($sekundes1 = $sekundes1 - 300);
-    } elseif (($sekundes1 < 300) && ($sekundes1 >= 240)) {
-        ($minutes1 = $minutes + 4) && ($sekundes1 = $sekundes1 - 240);
-    } elseif (($sekundes1 < 240) && ($sekundes1 >= 180)) {
-        ($minutes1 = $minutes + 3) && ($sekundes1 = $sekundes1 - 180);
-    } elseif (($sekundes1 < 180) && ($sekundes1 >= 120)) {
-        ($minutes1 = $minutes + 2) && ($sekundes1 = $sekundes1 - 120);
-    } elseif (($sekundes1 < 120) && ($sekundes1 >= 60)) {
-        ($minutes1 = $minutes + 1) && ($sekundes1 = $sekundes1 - 60);
-    }
+    // if ($sekundes1 >= 300) {
+    //     ($minutes1 = $minutes + 5) && ($sekundes1 = $sekundes1 - 300);
+    // } elseif (($sekundes1 < 300) && ($sekundes1 >= 240)) {
+    //     ($minutes1 = $minutes + 4) && ($sekundes1 = $sekundes1 - 240);
+    // } elseif (($sekundes1 < 240) && ($sekundes1 >= 180)) {
+    //     ($minutes1 = $minutes + 3) && ($sekundes1 = $sekundes1 - 180);
+    // } elseif (($sekundes1 < 180) && ($sekundes1 >= 120)) {
+    //     ($minutes1 = $minutes + 2) && ($sekundes1 = $sekundes1 - 120);
+    // } elseif (($sekundes1 < 120) && ($sekundes1 >= 60)) {
+    //     ($minutes1 = $minutes + 1) && ($sekundes1 = $sekundes1 - 60);
+    // }
 
-    if ($minutes1 >= 60) {
-        ($valandos1 = $valandos + 1) && ($minutes1 = $minutes1 - 60);
-    }
+    // if ($minutes1 >= 60) {
+    //     ($valandos1 = $valandos + 1) && ($minutes1 = $minutes1 - 60);
+    // }
 
-    if ($valandos1 >= 24) {
-        ($valandos1 = $valandos1 - 24);
-    }
+    // if ($valandos1 >= 24) {
+    //     ($valandos1 = $valandos1 - 24);
+    // }
 
-    if (($valandos1 < 10) && ($minutes1 < 10) && ($sekundes1 < 10)) {
-        echo "0". $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
-    } elseif (($valandos1 < 10) && ($minutes1 < 10)) {
-        echo "0". $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
-    } elseif (($valandos1 < 10) && ($sekundes1 < 10)) {
-        echo "0". $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
-    } elseif (($minutes1 < 10) && ($sekundes1 < 10)) {
-        echo $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
-    } elseif ($valandos1 < 10) {
-        echo "0". $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
-    } elseif ($minutes1 < 10) {
-        echo $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
-    } elseif ($sekundes1 < 10) {
-        echo $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
-    } else {
-        echo $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
-    }
+    // if (($valandos1 < 10) && ($minutes1 < 10) && ($sekundes1 < 10)) {
+    //     echo "0". $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
+    // } elseif (($valandos1 < 10) && ($minutes1 < 10)) {
+    //     echo "0". $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
+    // } elseif (($valandos1 < 10) && ($sekundes1 < 10)) {
+    //     echo "0". $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
+    // } elseif (($minutes1 < 10) && ($sekundes1 < 10)) {
+    //     echo $valandos1 . ":0" . $minutes1 . ":0" . $sekundes1;
+    // } elseif ($valandos1 < 10) {
+    //     echo "0". $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
+    // } elseif ($minutes1 < 10) {
+    //     echo $valandos1 . ":0" . $minutes1 . ":" . $sekundes1;
+    // } elseif ($sekundes1 < 10) {
+    //     echo $valandos1 . ":" . $minutes1 . ":0" . $sekundes1;
+    // } else {
+    //     echo $valandos1 . ":" . $minutes1 . ":" . $sekundes1;
+    // }
 
 
     echo "<br>";
     $sekundes += $paplaikas;
     $minutes += floor(($sekundes) / 60);
-    $sekundes %= 60;
+    $sekundes %= 60;// 359 % 60 = 359 - 60 - 60 -60 -60 -60 = 59
     $valandos += floor($minutes / 60);
     $minutes %=60;
     echo $valandos . " " . $minutes . " " . $sekundes;
+    echo "<hr>";
+
+    if (($valandos < 10) && ($minutes < 10) && ($sekundes < 10)) {
+        echo "0". $valandos . ":0" . $minutes . ":0" . $sekundes;
+    } elseif (($valandos < 10) && ($minutes < 10)) {
+        echo "0". $valandos . ":0" . $minutes . ":" . $sekundes;
+    } elseif (($valandos < 10) && ($sekundes < 10)) {
+        echo "0". $valandos . ":" . $minutes . ":0" . $sekundes;
+    } elseif (($minutes < 10) && ($sekundes < 10)) {
+        echo $valandos . ":0" . $minutes . ":0" . $sekundes;
+    } elseif ($valandos < 10) {
+        echo "0". $valandos . ":" . $minutes . ":" . $sekundes;
+    } elseif ($minutes < 10) {
+        echo $valandos . ":0" . $minutes . ":" . $sekundes;
+    } elseif ($sekundes < 10) {
+        echo $valandos . ":" . $minutes . ":0" . $sekundes;
+    } else {
+        echo $valandos . ":" . $minutes . ":" . $sekundes;
+    }
+
     echo "<hr>";
 
     $name = "Ryan";
